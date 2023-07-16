@@ -1,9 +1,7 @@
 const jwt = require("jsonwebtoken");
-
 const User = require("../models/users");
 
-// const JWT_SECRET = process.env.JWT_SECRET;
-const JWT_SECRET = 'ffgdfgh56vgghh';
+const JWT_SECRET = 'h5Gd3kf7Fg3H35gDm7Ngd2hd';
 
 function auth (req, res, next)
 {
@@ -43,25 +41,44 @@ function auth (req, res, next)
             {
                 console.log("Middleware unauthorized error!");
 
-                return res.status(401).json({ error: "Middleware unauthorized error!" });
+                return res.status(401).json({
+                    status: "Unauthorized",
+                    code: 401,
+                    contentType: "application/json",
+                    responseBody:
+                    {
+                        message: "Not authorized."
+                    },
+                    message: "Middleware unauthorized error!"
+                });
             }
-            else if (user.token === null)
+            if (user.token === null)
             {
-                return res.status(401).json({ error: "Middleware unauthorized error!" });
-            }
-            else
-            {
-                req.user = { id: user._id, name: user.name };
+                console.log("Middleware unauthorized error!");
 
-                console.log(req.user);
-                console.log(decode);
+                return res.status(401).json({
+                    status: "Unauthorized",
+                    code: 401,
+                    contentType: "application/json",
+                    responseBody:
+                    {
+                        message: "Not authorized."
+                    },
+                    message: "Middleware unauthorized error!"
+                });
+            }            
+            req.user = { id: user._id, email: user.email };
+
+            console.log(req.user);
+
+            console.log(decode);
                 
-                next();
-            }   
+            next();
         }
         catch (error)
         {
             console.log("Internal server error!");
+
             console.log(error);
 
             res.status(500).send({ message: "Internal server error!" });

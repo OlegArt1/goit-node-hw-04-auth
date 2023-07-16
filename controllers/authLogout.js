@@ -10,8 +10,20 @@ async function logout (req, res, next)
         {
             console.log("Logout unauthorized error!");
 
-            return res.status(401).json({ message: "Logout unauthorized error!" });
+            console.log("User: ", user);
+            
+            return res.status(401).json({
+                status: "Unauthorized",
+                code: 401,
+                contentType: "application/json",
+                responseBody:
+                {
+                    message: "Not authorized."
+                },
+                message: "Logout unauthorized error!"
+            });
         }
+        console.log("User: ", user);
         console.log("Logout success response!");
 
         return res.status(204).end("Logout success response!");
