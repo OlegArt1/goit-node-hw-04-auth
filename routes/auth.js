@@ -1,11 +1,11 @@
 const express = require("express");
 const auth = require("../middleware/auth");
 
-const postRegisterAuthController = require("../controllers/authRegister");
-const postLoginAuthController = require("../controllers/authLogin");
-const postLogoutAuthController = require("../controllers/authLogout");
-const getCurrentAuthController = require("../controllers/authCurrent");
-const patchUpdateStatusAuthController = require("../controllers/authUpdateStatus");
+const postRegisterAuthController = require("../controllers/auth/authRegister");
+const postLoginAuthController = require("../controllers/auth/authLogin");
+const postLogoutAuthController = require("../controllers/auth/authLogout");
+const getCurrentAuthController = require("../controllers/auth/authCurrent");
+const patchUpdateStatusAuthController = require("../controllers/auth/authUpdateStatus");
 
 const router = express.Router();
 

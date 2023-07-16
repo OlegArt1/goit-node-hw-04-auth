@@ -1,12 +1,12 @@
 const express = require("express");
 
-const getContactsController = require("../controllers/getContacts");
-const getContactByIdController = require("../controllers/getContactById");
-const getFilterFavoriteContactController = require("../controllers/getFilterContact");
-const postCreateContactController = require("../controllers/createContact");
-const putUpdateContactController = require("../controllers/updateContact");
-const patchUpdateStatusContactController = require("../controllers/updateStatusContact");
-const deleteContactController = require("../controllers/deleteContact");
+const getContactsController = require("../controllers/contacts/getContacts");
+const getContactByIdController = require("../controllers/contacts/getContactById");
+const getFilterFavoriteContactController = require("../controllers/contacts/getFilterContact");
+const postCreateContactController = require("../controllers/contacts/createContact");
+const putUpdateContactController = require("../controllers/contacts/updateContact");
+const patchUpdateStatusContactController = require("../controllers/contacts/updateStatusContact");
+const deleteContactController = require("../controllers/contacts/deleteContact");
 
 const router = express.Router();
 
