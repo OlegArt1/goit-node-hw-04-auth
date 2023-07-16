@@ -17,4 +17,3 @@ async function getFilterContact (__, res)
         return res.status(500).send({ message: "Internal server error!" });
     }
 };
-module.exports = { getFilterContact };

@@ -74,4 +74,3 @@ async function registered (req, res, next)
         return next(error);
     }
 };
-module.exports = { registered };

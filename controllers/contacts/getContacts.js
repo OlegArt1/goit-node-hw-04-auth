@@ -22,4 +22,3 @@ async function getContacts (req, res)
         return res.status(500).send({ message: "Internal server error!" });
     }
 };
-module.exports = { getContacts };

@@ -1,19 +1,15 @@
 const express = require("express");
 const auth = require("../middleware/auth");
 
-const postRegisterAuthController = require("../controllers/auth/authRegister");
-const postLoginAuthController = require("../controllers/auth/authLogin");
-const postLogoutAuthController = require("../controllers/auth/authLogout");
-const getCurrentAuthController = require("../controllers/auth/authCurrent");
-const patchUpdateStatusAuthController = require("../controllers/auth/authUpdateStatus");
+const authControllers = require("../controllers/auth/index");
 
 const router = express.Router();
 
 router.use(express.json());
-router.post("/register", postRegisterAuthController.registered);
-router.post("/login", postLoginAuthController.login);
-router.post("/logout", auth, postLogoutAuthController.logout);
-router.get("/current", auth, getCurrentAuthController.current);
-router.patch("/", patchUpdateStatusAuthController.updateStatusAuth);
+router.post("/register", authControllers.authRegister);
+router.post("/login", authControllers.authLogin);
+router.post("/logout", auth, authControllers.authLogout);
+router.get("/current", auth, authControllers.authCurrent);
+router.patch("/", authControllers.authUpdateStatus);
 
 module.exports = router;

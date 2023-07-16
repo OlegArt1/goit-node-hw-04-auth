@@ -34,4 +34,3 @@ async function updateStatusContact (req, res)
         return res.status(400).send({ message: "Missing field favorite!" });
     }
 };
-module.exports = { updateStatusContact };

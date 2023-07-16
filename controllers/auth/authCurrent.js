@@ -44,5 +44,4 @@ async function current (req, res, next)
 
         return next(error);
     }
-}
-module.exports = { current };
+};

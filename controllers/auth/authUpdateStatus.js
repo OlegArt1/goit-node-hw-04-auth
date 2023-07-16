@@ -34,4 +34,3 @@ async function updateStatusAuth (req, res)
         return res.status(400).send({ message: "Missing field subscription!" });
     }
 };
-module.exports = { updateStatusAuth };

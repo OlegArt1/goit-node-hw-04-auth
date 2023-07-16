@@ -36,4 +36,3 @@ async function updateContact (req, res)
         return res.status(400).send({ message: "Missing fields!" });
     }
 };
-module.exports = { updateContact };

@@ -1,22 +1,16 @@
 const express = require("express");
 
-const getContactsController = require("../controllers/contacts/getContacts");
-const getContactByIdController = require("../controllers/contacts/getContactById");
-const getFilterFavoriteContactController = require("../controllers/contacts/getFilterContact");
-const postCreateContactController = require("../controllers/contacts/createContact");
-const putUpdateContactController = require("../controllers/contacts/updateContact");
-const patchUpdateStatusContactController = require("../controllers/contacts/updateStatusContact");
-const deleteContactController = require("../controllers/contacts/deleteContact");
+const contactsController = require("../controllers/contacts/index");
 
 const router = express.Router();
 
 router.use(express.json());
-router.get("/", getContactsController.getContacts);
-router.get("/:id", getContactByIdController.getContactById);
-router.get("/", getFilterFavoriteContactController.getFilterContact);
-router.post("/", postCreateContactController.createContact);
-router.put("/:id", putUpdateContactController.updateContact);
-router.patch("/:id", patchUpdateStatusContactController.updateStatusContact);
-router.delete("/:id", deleteContactController.deleteContact);
+router.get("/", contactsController.Contacts);
+router.get("/:id", contactsController.ContactById);
+router.get("/", contactsController.createContact);
+router.post("/", contactsController.createContact);
+router.put("/:id", contactsController.updateContact);
+router.patch("/:id", contactsController.updateStatusContact);
+router.delete("/:id", contactsController.deleteContact);
 
 module.exports = router;

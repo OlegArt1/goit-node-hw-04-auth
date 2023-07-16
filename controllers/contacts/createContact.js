@@ -35,4 +35,3 @@ async function createContact (req, res)
         return res.status(500).send({ message: "Missing required name field!" });
     }
 };
-module.exports = { createContact };
