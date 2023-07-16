@@ -38,3 +38,4 @@ async function logout (req, res, next)
         return next(error);
     }
 };
+module.exports = { logout };

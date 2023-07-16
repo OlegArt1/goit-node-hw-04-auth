@@ -29,3 +29,4 @@ async function deleteContact (req, res)
         return res.status(500).send({ message: "Internal server error!" });
     }
 };
+module.exports = { deleteContact };

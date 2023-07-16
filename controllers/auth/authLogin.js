@@ -97,3 +97,4 @@ async function login (req, res, next)
         return next(error);
     }
 };
+module.exports = { login };
