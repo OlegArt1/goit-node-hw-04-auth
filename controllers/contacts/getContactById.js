@@ -1,12 +1,12 @@
-const Contacts = require("../models/contacts");
+const Contacts = require("../../models/contacts");
 
-async function deleteContact (req, res)
+async function getContactById (req, res)
 {
     const { id } = req.params;
 
     try
     {
-        const contactId = await Contacts.findByIdAndRemove(id);
+        const contactId = await Contacts.findById(id);
 
         if (!contactId)
         {
@@ -16,17 +16,19 @@ async function deleteContact (req, res)
         }
         else
         {
-            console.log("Contact deleted!");
-
-            return res.status(200).send({ message: "Contact deleted!" });
+            console.log("Get contact by id!");
+            console.log(`Id - ${id};`);
+            console.log(`Type - ${typeof id};`);
+            
+            return res.status(200).json(contactId);
         }
     }
     catch (error)
     {
         console.log("Internal server error!");
         console.log(error);
-        
+
         return res.status(500).send({ message: "Internal server error!" });
     }
 };
-module.exports = { deleteContact };
+module.exports = { getContactById };

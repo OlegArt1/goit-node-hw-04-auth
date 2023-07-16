@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../models/users");
+const User = require("../../models/users");
 
 const JWT_SECRET = 'h5Gd3kf7Fg3H35gDm7Ngd2hd';
 
